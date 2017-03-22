@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B0BAF5A1E7CFCB6002AA87D /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4B0BAF581E7CFCB6002AA87D /* Model.xcdatamodeld */; };
 		4B1CDED51E7A46C2007EA38E /* NewFenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1CDED41E7A46C2007EA38E /* NewFenceViewController.swift */; };
 		4B1CDED71E7A6B16007EA38E /* NewFenceLabelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1CDED61E7A6B16007EA38E /* NewFenceLabelViewController.swift */; };
 		4B41F2911E60F7C80049D68A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B41F2901E60F7C80049D68A /* AppDelegate.swift */; };
@@ -58,6 +59,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4B0BAF591E7CFCB6002AA87D /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		4B1CDED41E7A46C2007EA38E /* NewFenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewFenceViewController.swift; sourceTree = "<group>"; };
 		4B1CDED61E7A6B16007EA38E /* NewFenceLabelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewFenceLabelViewController.swift; sourceTree = "<group>"; };
 		4B41F28D1E60F7C80049D68A /* Geofencr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Geofencr.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -159,6 +161,7 @@
 				4B41F2991E60F7C80049D68A /* Assets.xcassets */,
 				4B41F29B1E60F7C80049D68A /* LaunchScreen.storyboard */,
 				4B41F29E1E60F7C80049D68A /* Info.plist */,
+				4B0BAF581E7CFCB6002AA87D /* Model.xcdatamodeld */,
 			);
 			path = Geofencr;
 			sourceTree = "<group>";
@@ -376,6 +379,7 @@
 				4B85372F1E7616EC00031B13 /* FenceViewController.swift in Sources */,
 				4BD197181E78C16D00E2FB40 /* SearchTableController.swift in Sources */,
 				4B1CDED71E7A6B16007EA38E /* NewFenceLabelViewController.swift in Sources */,
+				4B0BAF5A1E7CFCB6002AA87D /* Model.xcdatamodeld in Sources */,
 				4B41F2951E60F7C80049D68A /* StatsViewController.swift in Sources */,
 				4B1CDED51E7A46C2007EA38E /* NewFenceViewController.swift in Sources */,
 				4B41F2911E60F7C80049D68A /* AppDelegate.swift in Sources */,
@@ -653,6 +657,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4B0BAF581E7CFCB6002AA87D /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4B0BAF591E7CFCB6002AA87D /* Model.xcdatamodel */,
+			);
+			currentVersion = 4B0BAF591E7CFCB6002AA87D /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 4B41F2851E60F7C80049D68A /* Project object */;
 }

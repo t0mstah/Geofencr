@@ -43,19 +43,19 @@ class FenceViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         _ = addLabel("average visits", 0.0, 20.0, "Novecentosanswide-Medium", 12.0, UIColor(red: 0.43, green: 0.43, blue: 0.45, alpha: 1.0))
         _ = addLabel("last visit", 0.0, 150.0, "Novecentosanswide-Medium", 12.0, UIColor(red: 0.43, green: 0.43, blue: 0.45, alpha: 1.0))
         
-        dayValue = addLabel("00.0", -(view.frame.size.width / 4.0), 70.0, "SourceSansPro-Semibold", 32.0, UIColor(red:0.11, green:0.11, blue: 0.11, alpha:1.0))
+        dayValue = addLabel("00.0", -(view.frame.size.width / 4.0), 70.0, "SourceSansPro-Semibold", 32.0, UIColor(red: 0.11, green: 0.11, blue: 0.11, alpha: 1.0))
         _ = addLabel("1D", -(view.frame.size.width / 4.0), 100.0, "SourceSansPro-Regular", 12.0, UIColor(red: 0.43, green: 0.43, blue: 0.45, alpha: 1.0))
-        weekValue = addLabel("0.0", 0.0, 70.0, "SourceSansPro-Semibold", 32.0, UIColor(red:0.11, green:0.11, blue: 0.11, alpha:1.0))
+        weekValue = addLabel("0.0", 0.0, 70.0, "SourceSansPro-Semibold", 32.0, UIColor(red: 0.11, green: 0.11, blue: 0.11, alpha: 1.0))
         _ = addLabel("1W", 0.0, 100.0, "SourceSansPro-Regular", 12.0, UIColor(red: 0.43, green: 0.43, blue: 0.45, alpha: 1.0))
-        monthValue = addLabel("000.0", view.frame.size.width / 4.0, 70.0, "SourceSansPro-Semibold", 32.0, UIColor(red:0.11, green:0.11, blue: 0.11, alpha:1.0))
+        monthValue = addLabel("000.0", view.frame.size.width / 4.0, 70.0, "SourceSansPro-Semibold", 32.0, UIColor(red: 0.11, green: 0.11, blue: 0.11, alpha: 1.0))
         _ = addLabel("1M", view.frame.size.width / 4.0, 100.0, "SourceSansPro-Regular", 12.0, UIColor(red: 0.43, green: 0.43, blue: 0.45, alpha: 1.0))
         
-        _ = addLabel("00:00 PM", 0.0, 200.0, "SourceSansPro-Semibold", 32.0, UIColor(red:0.11, green:0.11, blue: 0.11, alpha:1.0))
+        _ = addLabel("00:00 PM", 0.0, 200.0, "SourceSansPro-Semibold", 32.0, UIColor(red: 0.11, green: 0.11, blue: 0.11, alpha: 1.0))
         _ = addLabel("00/00/00", 0.0, 230.0, "SourceSansPro-Regular", 12.0, UIColor(red: 0.43, green: 0.43, blue: 0.45, alpha: 1.0))
     }
     
     private func addLabel(_ text: String, _ xOffset: CGFloat, _ yOffset: CGFloat, _ textFont: String, _ textSize: CGFloat, _ textColor: UIColor) -> UILabel {
-        let label = UILabel(frame: CGRect(x: 0.0, y: 0.0, width: view.frame.size.width, height: view.frame.size.height / 2.0))
+        let label = UILabel(frame: CGRect(x: 0.0, y: 0.0, width: view.frame.size.width, height: view.frame.size.height))
         
         label.center = CGPoint(x: view.frame.size.width / 2.0 + xOffset, y: topMargin + view.frame.size.height / 2.0 + yOffset)
         label.font = UIFont(name: textFont, size: textSize)

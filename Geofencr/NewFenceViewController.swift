@@ -15,6 +15,7 @@ class NewFenceViewController : UIViewController {
     var topMargin: CGFloat!
     
     var nextBtn: UIBarButtonItem!
+    var radiusLabel: UILabel!
     
     var centerPoint: CGPoint?
     var path: UIBezierPath?
@@ -30,6 +31,13 @@ class NewFenceViewController : UIViewController {
         
         self.title = "new fence"
         
+        mapView.frame = CGRect(x: 0.0, y: 0.0, width: view.frame.size.width, height: view.frame.size.height)
+        mapView.mapType = MKMapType.standard
+        mapView.isZoomEnabled = false
+        mapView.isScrollEnabled = false
+        mapView.showsUserLocation = true
+        self.view.addSubview(mapView)
+        
         let cancelBtn = UIBarButtonItem(title: "cancel", style: .done, target: self, action: #selector(NewFenceViewController.closeModal(_ :)))
         self.navigationItem.leftBarButtonItem = cancelBtn
         
@@ -39,6 +47,8 @@ class NewFenceViewController : UIViewController {
         
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(NewFenceViewController.handlePan(_ :)))
         self.view.addGestureRecognizer(panGesture)
+        
+        radiusLabel = addLabel()
     }
     
     func handlePan(_ gestureRecognizer: UIPanGestureRecognizer!) {
@@ -67,6 +77,7 @@ class NewFenceViewController : UIViewController {
             let endCoord = CLLocation(coordinate: mapView.convert(touchLocation, toCoordinateFrom: gestureRecognizer.view), altitude: 0.0, horizontalAccuracy: 10.0, verticalAccuracy: 10.0, timestamp: Date())
             
             radius = centerCoord!.distance(from: endCoord)
+            radiusLabel.text = String(format:"%.1f meters", radius!)
             
             nextBtn.isEnabled = true
         }
@@ -90,18 +101,17 @@ class NewFenceViewController : UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-                
-        mapView.frame = CGRect(x: 0.0, y: 0.0, width: view.frame.size.width, height: view.frame.size.height)
+    private func addLabel() -> UILabel {
+        let label = UILabel(frame: CGRect(x: 0.0, y: 0.0, width: view.frame.size.width, height: view.frame.size.height))
         
-        mapView.mapType = MKMapType.standard
-        mapView.isZoomEnabled = false
-        mapView.isScrollEnabled = false
+        label.center = CGPoint(x: view.frame.size.width / 2.0, y: view.frame.size.height - 47.0)
+        label.font = UIFont(name: "Novecentosanswide-Medium", size: 17.0)
+        label.textColor = UIColor(red: 0.11, green: 0.11, blue: 0.11, alpha: 1.0)
+        label.textAlignment = .center
+        label.text = "0.0 meters"
         
-        mapView.showsUserLocation = true
-        
-        self.view.addSubview(mapView)
+        self.view.addSubview(label)
+        return label
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

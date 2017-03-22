@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import CoreData
 
 class StatsViewController: UITableViewController {
     
-    var items: [String] = ["🏡 Home", "💼 Work", "🎓 School", "💪 Gym", "🍔 Food"]
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var fences: [Fence] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,13 +27,22 @@ class StatsViewController: UITableViewController {
         super.didReceiveMemoryWarning()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        do {
+            fences = try context.fetch(Fence.fetchRequest())
+        } catch {
+            print("Fetching failed")
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        return fences.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "fenceCell", for: indexPath)
-        cell.textLabel?.text = self.items[indexPath.row]
+        cell.textLabel?.text = fences[indexPath.row].name
         return cell
     }
     
