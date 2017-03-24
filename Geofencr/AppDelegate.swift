@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import GooglePlaces
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -32,6 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ]
                 
         UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Novecentosanswide-Medium", size: 17.0)!], for: UIControlState.normal)
+        
+        GMSPlacesClient.provideAPIKey("AIzaSyBaHxdeC_Pm9V3CaN1vgXMJ-Ug-IegdQx8")
         
         return true
     }

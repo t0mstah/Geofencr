@@ -10,20 +10,24 @@ import UIKit
 import MapKit
 import CoreLocation
 import CoreData
+import GooglePlaces
 
-class GeofencrViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+class GeofencrViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, GMSAutocompleteResultsViewControllerDelegate {
 
     var topMargin: CGFloat!
+    let coordinateDelta = 0.025
     
     var locationManager: CLLocationManager!
     var mapView: MKMapView!
-    var searchController: UISearchController!
     
-    var locateMe: UIButton!
-    var addFence: UIButton!
+    var resultsViewController: GMSAutocompleteResultsViewController!
+    var searchController: UISearchController!
+    var searchView: UIView!
+    
+    var locateMe: UIBarButtonItem!
+    var addFence: UIBarButtonItem!
     
     var initiallyLocated = false
-    var buttonLocated = false
     
     var lastLocation: CLLocation!
     
@@ -35,21 +39,19 @@ class GeofencrViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        roundCorners(self.navigationController!.navigationBar, [.bottomLeft, .bottomRight], 12.0)
         roundCorners(self.tabBarController!.tabBar, [.topLeft, .topRight], 12.0)
         
         topMargin = UIApplication.shared.statusBarFrame.height + self.navigationController!.navigationBar.frame.size.height
         self.title = "geofencr"
         
         locationManager = CLLocationManager()
+        locationManager.requestAlwaysAuthorization()
         
-        if !CLLocationManager.locationServicesEnabled() {
-            locationManager.requestAlwaysAuthorization()
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
         }
-        
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-        locationManager.startUpdatingLocation()
         
         mapView = MKMapView()
         mapView.delegate = self
@@ -81,28 +83,38 @@ class GeofencrViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     }
     
     private func setupSearch() {
-        let searchTableController = storyboard!.instantiateViewController(withIdentifier: "SearchTableController") as! SearchTableController
-        searchController = UISearchController(searchResultsController: searchTableController)
-        searchController.searchResultsUpdater = searchTableController
+        resultsViewController = GMSAutocompleteResultsViewController()
+        resultsViewController.delegate = self
         
-        navigationItem.titleView = searchController.searchBar
+        let left = mapView.region.center.latitude - coordinateDelta
+        let right = mapView.region.center.latitude + coordinateDelta
+        let top = mapView.region.center.longitude - coordinateDelta
+        let bottom = mapView.region.center.longitude + coordinateDelta
+        
+        resultsViewController.autocompleteBounds = GMSCoordinateBounds(coordinate: CLLocationCoordinate2D(latitude: left, longitude: top), coordinate: CLLocationCoordinate2D(latitude: right, longitude: bottom))
+        
+        searchController = UISearchController(searchResultsController: resultsViewController)
+        searchController.searchResultsUpdater = resultsViewController
+        
+        searchView = UIView(frame: CGRect(x: 0, y: topMargin, width: view.frame.size.width, height: 68.0))
         
         let searchBar = searchController.searchBar
-        searchBar.sizeToFit()
         searchBar.placeholder = "Search for a place or address"
         
         let textField = searchBar.value(forKey: "searchField") as? UITextField
         textField?.font = UIFont(name: "SourceSansPro-Regular", size: 17.0)
         
-        searchController.hidesNavigationBarDuringPresentation = false
-        searchController.dimsBackgroundDuringPresentation = true
-        definesPresentationContext = true
-        
         searchBar.setValue("cancel", forKey:"_cancelButtonText")
-
-        searchTableController.mapView = mapView
+        
+        searchBar.barTintColor = UIColor(red: 0.11, green: 0.11, blue: 0.11, alpha: 1.0)
+        searchBar.tintColor = UIColor(red: 0.78, green: 0.97, blue: 0.77, alpha: 1.0)
+        
+        searchView.addSubview(searchBar)
+        
+        searchController.hidesNavigationBarDuringPresentation = false
+        definesPresentationContext = true
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -112,17 +124,16 @@ class GeofencrViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         mapView.isScrollEnabled = true
         mapView.showsUserLocation = true
         self.view.addSubview(mapView)
-        
-        addFences()
 
-        locateMe = addButton(view.frame.size.width / 10.0, view.frame.size.width / 10.0, "location.png", [.topLeft, .topRight], (view.frame.size.width / 10.0) - 0.5)
-        addFence = addButton(view.frame.size.width / 10.0, view.frame.size.width / 5.0, "add.png", [.bottomLeft, .bottomRight], 0.0)
+        addFences()
         
-        locateMe.setImage(UIImage(named: "location.png") , for: .highlighted)
-        buttonLocated = false
+        locateMe = UIBarButtonItem(image: UIImage(named: "location"), style: .plain, target: self, action: #selector(GeofencrViewController.locate(_ :)))
+        self.navigationItem.leftBarButtonItem = locateMe
         
-        locateMe.addTarget(self, action: #selector(GeofencrViewController.locate(_ :)), for: .touchUpInside)
-        addFence.addTarget(self, action: #selector(GeofencrViewController.new(_ :)), for: .touchUpInside)
+        addFence = UIBarButtonItem(image: UIImage(named: "add"), style: .plain, target: self, action: #selector(GeofencrViewController.new(_ :)))
+        self.navigationItem.rightBarButtonItem = addFence
+        
+        self.view.addSubview(searchView)
     }
     
     override func didReceiveMemoryWarning() {
@@ -130,23 +141,11 @@ class GeofencrViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     }
     
     func locate(_ sender: UIButton!) {
-        if !buttonLocated {
-            locateMe.setImage(UIImage(named: "location_selected.png") , for: .normal)
-            buttonLocated = true
+        let center = CLLocationCoordinate2D(latitude: lastLocation.coordinate.latitude, longitude: lastLocation.coordinate.longitude)
+        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: coordinateDelta, longitudeDelta: coordinateDelta))
             
-            let center = CLLocationCoordinate2D(latitude: lastLocation.coordinate.latitude, longitude: lastLocation.coordinate.longitude)
-            let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.025, longitudeDelta: 0.025))
-                
-            mapView.showsUserLocation = true
-            mapView.setRegion(region, animated: true)
-        }
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if buttonLocated == true {
-            locateMe.setImage(UIImage(named: "location.png") , for: .normal)
-            buttonLocated = false
-        }
+        mapView.showsUserLocation = true
+        mapView.setRegion(region, animated: true)
     }
     
     func new(_ sender: UIButton!) {
@@ -159,33 +158,14 @@ class GeofencrViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         present(navigationController, animated: true, completion: nil)
     }
     
-    private func addFences() {
+    func addFences() {
         mapView.removeAnnotations(self.mapView.annotations)
         for fence in fences {
-            let pin = MKPointAnnotation()
+            let pin = CustomPointAnnotation()
             pin.coordinate = CLLocationCoordinate2DMake(fence.latitude, fence.longitude)
             pin.title = fence.name
             mapView.addAnnotation(pin)
         }
-    }
-    
-    private func addButton(_ size: CGFloat, _ yCoord: CGFloat, _ imageName: String, _ corners: UIRectCorner, _ borderOffset: CGFloat) -> UIButton {
-        let button = UIButton(frame: CGRect(x: size, y: topMargin + yCoord, width: size, height: size))
-        
-        button.backgroundColor = UIColor(red: 0.78, green: 0.97, blue: 0.77, alpha: 0.9)
-        button.setImage(UIImage(named: imageName) , for: .normal)
-        let edgeInset = size / 4.0
-        button.imageEdgeInsets = UIEdgeInsets(top: edgeInset, left: edgeInset, bottom: edgeInset, right: edgeInset)
-        
-        roundCorners(button, corners, 12.0)
-        
-        let border = UIView()
-        border.frame = CGRect(x: 0.0, y: borderOffset, width: size, height: 0.5)
-        border.backgroundColor = UIColor(red: 0.12, green: 0.51, blue: 0.30, alpha: 0.5)
-        button.addSubview(border)
-        
-        self.view.addSubview(button)
-        return button
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -202,12 +182,11 @@ class GeofencrViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        if annotation is MKUserLocation {
+        if annotation is MKUserLocation || !(annotation is CustomPointAnnotation) {
             return nil
         }
         
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "fencePin")
-        
         if annotationView == nil {
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "fencePin")
             annotationView?.canShowCallout = true
@@ -216,8 +195,37 @@ class GeofencrViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         }
         
         annotationView?.image = UIImage(named: "pin")
-        
         return annotationView
     }
+    
+    func resultsController(_ resultsController: GMSAutocompleteResultsViewController,
+                           didAutocompleteWith place: GMSPlace) {
+        searchController?.isActive = false
+        
+        addFences()
+
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = place.coordinate
+        annotation.title = place.name
+        annotation.subtitle = place.formattedAddress
+        mapView.addAnnotation(annotation)
+                
+        let region = MKCoordinateRegion(center: place.coordinate, span: MKCoordinateSpan(latitudeDelta: coordinateDelta, longitudeDelta: coordinateDelta))
+        mapView.setRegion(region, animated: true)
+    }
+    
+    func resultsController(_ resultsController: GMSAutocompleteResultsViewController,
+                           didFailAutocompleteWithError error: Error){
+        print("Error: ", error.localizedDescription)
+    }
+    
+    func didRequestAutocompletePredictions(forResultsController resultsController: GMSAutocompleteResultsViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+    }
+    
+    func didUpdateAutocompletePredictions(forResultsController resultsController: GMSAutocompleteResultsViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+    }
+    
     
 }

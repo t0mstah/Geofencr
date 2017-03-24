@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A441B81B31ECA986D4BDD38 /* Pods_GeofencrTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D100A4E9517684A2091C0A8 /* Pods_GeofencrTests.framework */; };
+		3BA7E6C7EDD318507E5C4B6D /* Pods_Geofencr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBF06FBCFAEA8440A83D0EFF /* Pods_Geofencr.framework */; };
 		4B0BAF5A1E7CFCB6002AA87D /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4B0BAF581E7CFCB6002AA87D /* Model.xcdatamodeld */; };
 		4B1CDED51E7A46C2007EA38E /* NewFenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1CDED41E7A46C2007EA38E /* NewFenceViewController.swift */; };
 		4B1CDED71E7A6B16007EA38E /* NewFenceLabelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1CDED61E7A6B16007EA38E /* NewFenceLabelViewController.swift */; };
@@ -20,6 +22,7 @@
 		4B41F2B31E60F7C90049D68A /* GeofencrUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B41F2B21E60F7C90049D68A /* GeofencrUITests.swift */; };
 		4B41F2CF1E6235030049D68A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B41F2CE1E6235030049D68A /* MapKit.framework */; };
 		4B85372F1E7616EC00031B13 /* FenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B85372E1E7616EC00031B13 /* FenceViewController.swift */; };
+		4BC023131E84DCBF0002B8E1 /* CustomPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC023121E84DCBF0002B8E1 /* CustomPointAnnotation.swift */; };
 		4BD196FF1E78727300E2FB40 /* SourceSansPro-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4BD196F31E78727300E2FB40 /* SourceSansPro-Black.otf */; };
 		4BD197001E78727300E2FB40 /* SourceSansPro-BlackIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4BD196F41E78727300E2FB40 /* SourceSansPro-BlackIt.otf */; };
 		4BD197011E78727300E2FB40 /* SourceSansPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4BD196F51E78727300E2FB40 /* SourceSansPro-Bold.otf */; };
@@ -38,7 +41,7 @@
 		4BD197141E78737100E2FB40 /* Novecentosanswide-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4BD1970E1E78737100E2FB40 /* Novecentosanswide-Light.otf */; };
 		4BD197151E78737100E2FB40 /* Novecentosanswide-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4BD1970F1E78737100E2FB40 /* Novecentosanswide-Medium.otf */; };
 		4BD197161E78737100E2FB40 /* Novecentosanswide-Normal.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4BD197101E78737100E2FB40 /* Novecentosanswide-Normal.otf */; };
-		4BD197181E78C16D00E2FB40 /* SearchTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD197171E78C16D00E2FB40 /* SearchTableController.swift */; };
+		D68A46A18C7B6E3D269ADF78 /* Pods_GeofencrUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B67B997828FDC0628A1FB904 /* Pods_GeofencrUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +62,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		26655EB372D46702760E2284 /* Pods-GeofencrTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeofencrTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GeofencrTests/Pods-GeofencrTests.release.xcconfig"; sourceTree = "<group>"; };
+		27E1389B2780C471ACAA696E /* Pods-GeofencrTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeofencrTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GeofencrTests/Pods-GeofencrTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3D100A4E9517684A2091C0A8 /* Pods_GeofencrTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeofencrTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		491F3EFD973615C660FFDFDE /* Pods-GeofencrUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeofencrUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GeofencrUITests/Pods-GeofencrUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		4B0BAF591E7CFCB6002AA87D /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		4B1CDED41E7A46C2007EA38E /* NewFenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewFenceViewController.swift; sourceTree = "<group>"; };
 		4B1CDED61E7A6B16007EA38E /* NewFenceLabelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewFenceLabelViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +85,7 @@
 		4B41F2B41E60F7C90049D68A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B41F2CE1E6235030049D68A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		4B85372E1E7616EC00031B13 /* FenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FenceViewController.swift; sourceTree = "<group>"; };
+		4BC023121E84DCBF0002B8E1 /* CustomPointAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPointAnnotation.swift; sourceTree = "<group>"; };
 		4BD196F31E78727300E2FB40 /* SourceSansPro-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SourceSansPro-Black.otf"; path = "../../Library/Fonts/SourceSansPro-Black.otf"; sourceTree = "<group>"; };
 		4BD196F41E78727300E2FB40 /* SourceSansPro-BlackIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SourceSansPro-BlackIt.otf"; path = "../../Library/Fonts/SourceSansPro-BlackIt.otf"; sourceTree = "<group>"; };
 		4BD196F51E78727300E2FB40 /* SourceSansPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SourceSansPro-Bold.otf"; path = "../../Library/Fonts/SourceSansPro-Bold.otf"; sourceTree = "<group>"; };
@@ -96,7 +104,11 @@
 		4BD1970E1E78737100E2FB40 /* Novecentosanswide-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Novecentosanswide-Light.otf"; path = "../../Library/Fonts/Novecentosanswide-Light.otf"; sourceTree = "<group>"; };
 		4BD1970F1E78737100E2FB40 /* Novecentosanswide-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Novecentosanswide-Medium.otf"; path = "../../Library/Fonts/Novecentosanswide-Medium.otf"; sourceTree = "<group>"; };
 		4BD197101E78737100E2FB40 /* Novecentosanswide-Normal.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Novecentosanswide-Normal.otf"; path = "../../Library/Fonts/Novecentosanswide-Normal.otf"; sourceTree = "<group>"; };
-		4BD197171E78C16D00E2FB40 /* SearchTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableController.swift; sourceTree = "<group>"; };
+		4FFC04F5B56C2DC78F5645FF /* Pods-GeofencrUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeofencrUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GeofencrUITests/Pods-GeofencrUITests.release.xcconfig"; sourceTree = "<group>"; };
+		94E1F31640FE18B039DA0F33 /* Pods-Geofencr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Geofencr.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Geofencr/Pods-Geofencr.debug.xcconfig"; sourceTree = "<group>"; };
+		A407111E11A8084D6AC951D5 /* Pods-Geofencr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Geofencr.release.xcconfig"; path = "Pods/Target Support Files/Pods-Geofencr/Pods-Geofencr.release.xcconfig"; sourceTree = "<group>"; };
+		B67B997828FDC0628A1FB904 /* Pods_GeofencrUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeofencrUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FBF06FBCFAEA8440A83D0EFF /* Pods_Geofencr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Geofencr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +117,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B41F2CF1E6235030049D68A /* MapKit.framework in Frameworks */,
+				3BA7E6C7EDD318507E5C4B6D /* Pods_Geofencr.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +125,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A441B81B31ECA986D4BDD38 /* Pods_GeofencrTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +133,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D68A46A18C7B6E3D269ADF78 /* Pods_GeofencrUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,6 +149,7 @@
 				4B41F2B11E60F7C90049D68A /* GeofencrUITests */,
 				4B41F28E1E60F7C80049D68A /* Products */,
 				4B41F2CD1E6235030049D68A /* Frameworks */,
+				C2140CC7174BF760D77EF818 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -152,7 +168,7 @@
 			children = (
 				4B41F2901E60F7C80049D68A /* AppDelegate.swift */,
 				4B41F2921E60F7C80049D68A /* GeofencrViewController.swift */,
-				4BD197171E78C16D00E2FB40 /* SearchTableController.swift */,
+				4BC023121E84DCBF0002B8E1 /* CustomPointAnnotation.swift */,
 				4B1CDED41E7A46C2007EA38E /* NewFenceViewController.swift */,
 				4B1CDED61E7A6B16007EA38E /* NewFenceLabelViewController.swift */,
 				4B41F2941E60F7C80049D68A /* StatsViewController.swift */,
@@ -213,8 +229,24 @@
 			isa = PBXGroup;
 			children = (
 				4B41F2CE1E6235030049D68A /* MapKit.framework */,
+				FBF06FBCFAEA8440A83D0EFF /* Pods_Geofencr.framework */,
+				3D100A4E9517684A2091C0A8 /* Pods_GeofencrTests.framework */,
+				B67B997828FDC0628A1FB904 /* Pods_GeofencrUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C2140CC7174BF760D77EF818 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				94E1F31640FE18B039DA0F33 /* Pods-Geofencr.debug.xcconfig */,
+				A407111E11A8084D6AC951D5 /* Pods-Geofencr.release.xcconfig */,
+				27E1389B2780C471ACAA696E /* Pods-GeofencrTests.debug.xcconfig */,
+				26655EB372D46702760E2284 /* Pods-GeofencrTests.release.xcconfig */,
+				491F3EFD973615C660FFDFDE /* Pods-GeofencrUITests.debug.xcconfig */,
+				4FFC04F5B56C2DC78F5645FF /* Pods-GeofencrUITests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,9 +256,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4B41F2B71E60F7C90049D68A /* Build configuration list for PBXNativeTarget "Geofencr" */;
 			buildPhases = (
+				719DEE8C937242E3E29C9525 /* [CP] Check Pods Manifest.lock */,
 				4B41F2891E60F7C80049D68A /* Sources */,
 				4B41F28A1E60F7C80049D68A /* Frameworks */,
 				4B41F28B1E60F7C80049D68A /* Resources */,
+				DB7E07F5044CF3C5AD8C37CA /* [CP] Embed Pods Frameworks */,
+				4FDC1FD2A06C8226B426C538 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -241,9 +276,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4B41F2BA1E60F7C90049D68A /* Build configuration list for PBXNativeTarget "GeofencrTests" */;
 			buildPhases = (
+				8B89C42DA80F2185366D8E8B /* [CP] Check Pods Manifest.lock */,
 				4B41F29F1E60F7C90049D68A /* Sources */,
 				4B41F2A01E60F7C90049D68A /* Frameworks */,
 				4B41F2A11E60F7C90049D68A /* Resources */,
+				3547974CC733A7532A32AD5D /* [CP] Embed Pods Frameworks */,
+				4A69752FC87F1C99A0AFF9E5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -259,9 +297,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4B41F2BD1E60F7C90049D68A /* Build configuration list for PBXNativeTarget "GeofencrUITests" */;
 			buildPhases = (
+				7FD17CAF2CBC374078884028 /* [CP] Check Pods Manifest.lock */,
 				4B41F2AA1E60F7C90049D68A /* Sources */,
 				4B41F2AB1E60F7C90049D68A /* Frameworks */,
 				4B41F2AC1E60F7C90049D68A /* Resources */,
+				7487D7A3C689DF0C15CCB83F /* [CP] Embed Pods Frameworks */,
+				7441746309452E020D3C827C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -371,19 +412,157 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3547974CC733A7532A32AD5D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GeofencrTests/Pods-GeofencrTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4A69752FC87F1C99A0AFF9E5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GeofencrTests/Pods-GeofencrTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4FDC1FD2A06C8226B426C538 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Geofencr/Pods-Geofencr-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		719DEE8C937242E3E29C9525 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7441746309452E020D3C827C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GeofencrUITests/Pods-GeofencrUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7487D7A3C689DF0C15CCB83F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GeofencrUITests/Pods-GeofencrUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7FD17CAF2CBC374078884028 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8B89C42DA80F2185366D8E8B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DB7E07F5044CF3C5AD8C37CA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Geofencr/Pods-Geofencr-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4B41F2891E60F7C80049D68A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				4B85372F1E7616EC00031B13 /* FenceViewController.swift in Sources */,
-				4BD197181E78C16D00E2FB40 /* SearchTableController.swift in Sources */,
 				4B1CDED71E7A6B16007EA38E /* NewFenceLabelViewController.swift in Sources */,
 				4B0BAF5A1E7CFCB6002AA87D /* Model.xcdatamodeld in Sources */,
 				4B41F2951E60F7C80049D68A /* StatsViewController.swift in Sources */,
 				4B1CDED51E7A46C2007EA38E /* NewFenceViewController.swift in Sources */,
 				4B41F2911E60F7C80049D68A /* AppDelegate.swift in Sources */,
 				4B41F2931E60F7C80049D68A /* GeofencrViewController.swift in Sources */,
+				4BC023131E84DCBF0002B8E1 /* CustomPointAnnotation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -533,6 +712,7 @@
 		};
 		4B41F2B81E60F7C90049D68A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 94E1F31640FE18B039DA0F33 /* Pods-Geofencr.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 3WS2Y55HUZ;
@@ -547,6 +727,7 @@
 		};
 		4B41F2B91E60F7C90049D68A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A407111E11A8084D6AC951D5 /* Pods-Geofencr.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 3WS2Y55HUZ;
@@ -561,6 +742,7 @@
 		};
 		4B41F2BB1E60F7C90049D68A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 27E1389B2780C471ACAA696E /* Pods-GeofencrTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -576,6 +758,7 @@
 		};
 		4B41F2BC1E60F7C90049D68A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26655EB372D46702760E2284 /* Pods-GeofencrTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -591,6 +774,7 @@
 		};
 		4B41F2BE1E60F7C90049D68A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 491F3EFD973615C660FFDFDE /* Pods-GeofencrUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 3WS2Y55HUZ;
@@ -605,6 +789,7 @@
 		};
 		4B41F2BF1E60F7C90049D68A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4FFC04F5B56C2DC78F5645FF /* Pods-GeofencrUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 3WS2Y55HUZ;

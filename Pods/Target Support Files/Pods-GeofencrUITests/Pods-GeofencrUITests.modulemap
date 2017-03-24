@@ -1,0 +1,6 @@
+framework module Pods_GeofencrUITests {
+  umbrella header "Pods-GeofencrUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

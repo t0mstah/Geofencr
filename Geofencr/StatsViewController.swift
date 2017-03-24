@@ -51,9 +51,7 @@ class StatsViewController: UITableViewController {
             let viewController = segue.destination as! FenceViewController
             
             let indexPath = tableView.indexPathForSelectedRow!
-            let currentCell = tableView.cellForRow(at: indexPath)! as UITableViewCell
-
-            viewController.passedValue = currentCell.textLabel?.text            
+            viewController.fence = fences[indexPath.row]
         }
     }
     
